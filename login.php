@@ -30,6 +30,10 @@ if(isset($_POST['login'])){
             // login sukses, alihkan ke halaman timeline
             header("Location: timeline.php");
         }
+		else {
+			// login gagal, tambahin opsi daftar
+			echo "<p>login gagal, silakan daftar baru saja...</p>";
+		}
     }
 }
 ?>
