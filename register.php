@@ -10,12 +10,15 @@ if(isset($_POST['register'])){
     // enkripsi password
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-	// pilih type
-	$type = $_POST['type'];	
+	// pilih type, lokasi, dan status
+    $type = $_POST['type'];	
+    $location = $_POST['location'];	
+    $status = 'available';	
+    $phone = $_POST['phone'];
 
     // menyiapkan query
-    $sql = "INSERT INTO user_t (name, username, email, password, type) 
-            VALUES (:name, :username, :email, :password, :type)";
+    $sql = "INSERT INTO user_t (name, username, email, password, type, location, status, phone) 
+            VALUES (:name, :username, :email, :password, :type, :location, :status, :phone)";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
@@ -23,16 +26,20 @@ if(isset($_POST['register'])){
         ":name" => $name,
         ":username" => $username,
         ":password" => $password,
-		":type" => $type,
-        ":email" => $email
+        ":type" => $type,
+        ":email" => $email,
+        ":location" => $location,
+        ":status" => $status,
+        ":phone" => $phone
     );
-
+    
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
     if($saved) header("Location: login.php");
+     
 }
 
 ?>
@@ -79,12 +86,30 @@ if(isset($_POST['register'])){
                 <label for="password">Password</label>
                 <input class="form-control" type="password" name="password" placeholder="Password" />
             </div>
+
+            <div class="form-group">
+                <label for="phone">Nomor HP</label>
+                <input class="form-control" type="phone" name="phone" placeholder="+62 800-0000-0000" />
+            </div>
 			
 			<div class="form-group">
-                <label for="type">Mendaftar Sebagai:</label> <p/>
-                <t/><label class="radio-inline"><input type="radio" value="TR" name="type" checked>Tourist</label>
+                <label for="type">Mendaftar Sebagai:</label>
+                <label class="radio-inline"><input type="radio" value="TR" name="type" checked>Tourist</label>
 				<label class="radio-inline"><input type="radio" value="TG" name="type">Tour Guide</label>
             </div>
+
+            <div class="form-group">
+                <p>Jika anda adalah Tour Guide, dimana lokasi anda?</p>
+                <label for="location">Lokasi</label>
+                <select name="location" size="1">
+                    <option value="bogor">Bogor</option>
+                    <option value="jakarta">Jakarta</option>
+                    <option value="bandung">Bandung</option>
+                    <option value="lampung">Lampung</option>
+                </select>
+            </div>
+
+            <input class="form-control" type="status" name="status" value="available" hidden />
 
             <input type="submit" class="btn btn-success btn-block" name="register" value="Daftar" />
 
