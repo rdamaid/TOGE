@@ -50,20 +50,30 @@ if(isset($_POST['register'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Pesbuk</title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Register</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
-<body class="bg-light">
+<body style="background-color: #d3fff9">
 
 <div class="container mt-5">
+        
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
 
-        <p>&larr; <a href="index.php">Home</a>
-
-        <h4>Bergabunglah bersama ribuan orang lainnya...</h4>
-        <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="200" height="">
+            <h2>Form Pendaftaran</h2>
+            <p class="lead">Form di bawah ini merupakan data diri anda, data ini akan digunakan untuk kepentingan anda dalam menggunakan jasa dari web kami, atas pengertiannya kami ucapkan terimakasih.</p>
+            <p>&larr; <a href="index.php">Home</a>
+            <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
+        </div>
 
         <form action="" method="POST">
 
@@ -116,11 +126,6 @@ if(isset($_POST['register'])){
         </form>
             
         </div>
-
-        <div class="col-md-6">
-            <img class="img img-responsive" src="img/connect.png" />
-        </div>
-
     </div>
 </div>
 
