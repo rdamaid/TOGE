@@ -1,0 +1,50 @@
+
+body{
+    background-image:url(https://2.bp.blogspot.com/-UVNKtaxQchY/XHfhf175SJI/AAAAAAAAB64/JFx1DKvmdI0FMOfnioQMDtHQlQMqNtlvQCLcBGAs/s1600/Pemandangan%2BIndah%2Bmusim%2Bpanas-min.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 100%;
+}
+
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 10px);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(66, 244, 149, 0.8)));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 10%, rgba(66, 244, 149, 0.8) 50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.masthead h1 {
+  font-size: 2.25rem;
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+  header.masthead p {
+    font-size: 1.15rem;
+    color: #fff;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 3.5rem;
+  }
+} 
+
+@media (min-width: 992px) {
+  #mainNav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
