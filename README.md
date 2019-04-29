@@ -2,7 +2,7 @@
 ## Web untuk menyatukan Tour Guide dengan Tourist
 
 ### Database Class Diagram
-![Class Diagram](https://user-images.githubusercontent.com/34114125/56483370-ca936a80-64f3-11e9-846d-0bbfdef5d9e4.png)
+![Class Diagram](https://user-images.githubusercontent.com/34114125/56873822-5c085c80-6a5f-11e9-9529-0cc9558de894.png)
 
 ### Cara olah GitHub
 1. Download semua file
