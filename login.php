@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
                 session_start();
                 $_SESSION["user"] = $user;
                 // login sukses, alihkan ke halaman timeline
-                header("Location: timeline.php");
+                header("Location: timeline2.php");
             }
         else {
           // login gagal, tambahin opsi daftar
@@ -50,7 +50,7 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/login.css"></head>
-<body>
+<body style="background-image: url(img/weather.png);">
 
 <div class="container">
     <p>&larr; <a href="index.php">Home</a>
