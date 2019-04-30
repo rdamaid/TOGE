@@ -1,53 +1,10 @@
 <?php
 
 $gagal = NULL;
-
 require_once("config.php");
-
-if(isset($_POST['register'])){
-
-    // filter data yang diinputkan
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-	
-	$sql = "SELECT * FROM user_t WHERE username=:username OR email=:email";
-    $stmt = $db->prepare($sql);
-    
-    // bind parameter ke query
-    $params = array(
-        ":username" => $username,
-        ":email" => $username
-    );
-
-    $stmt->execute($params);
-
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // jika user terdaftar
-    if($user){
-        //
-    
-        // register gagal, cari username atau email yang lain
-        $gagal = "<div class='alert alert-info center'>
-                    <p><strong>Maaf,</strong> Username atau Email telah terpakai.</p>
-                </div>";
-		
-    
-    } else {
-    // enkripsi password
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-	// pilih type, lokasi, dan status
-    $type =<?php
-
-$gagal = NULL;
-
-require_once("config.php");
-
 if(isset($_POST['register'])){
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-
     $sql = "SELECT * FROM user_t WHERE username=:username OR email=:email";
     $stmt = $db->prepare($sql);
     
@@ -56,11 +13,8 @@ if(isset($_POST['register'])){
         ":username" => $username,
         ":email" => $username
     );
-
     $stmt->execute($params);
-
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
     // jika user terdaftar
     if($user){
         //
@@ -82,12 +36,10 @@ if(isset($_POST['register'])){
         $location = $_POST['location'];	
         $status = 'available';	
         $phone = $_POST['phone'];
-
         // menyiapkan query
         $sql = "INSERT INTO user_t (name, username, email, password, type, location, status, phone) 
                 VALUES (:name, :username, :email, :password, :type, :location, :status, :phone)";
         $stmt = $db->prepare($sql);
-
         // bind parameter ke query
         $params = array(
             ":name" => $name,
@@ -102,13 +54,11 @@ if(isset($_POST['register'])){
         
         // eksekusi query untuk menyimpan ke database
         $saved = $stmt->execute($params);
-
         // jika query simpan berhasil, maka user sudah terdaftar
         // maka alihkan ke halaman login
         if($saved) header("Location: login.php");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -139,6 +89,7 @@ if(isset($_POST['register'])){
             <h2>Form Pendaftaran</h2>
             <p class="lead">Form di bawah ini merupakan data diri anda, data ini akan digunakan untuk kepentingan anda dalam menggunakan jasa dari web kami, atas pengertiannya kami ucapkan terimakasih.</p>
             <p>&larr; <a href="index.php">Home</a>
+            <?php echo $gagal ?>
             <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
         </div>
 
