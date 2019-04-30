@@ -1,5 +1,7 @@
 <?php
 
+$gagal = NULL;
+
 require_once("config.php");
 
 if(isset($_POST['register'])){
@@ -7,39 +9,104 @@ if(isset($_POST['register'])){
     // filter data yang diinputkan
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+	
+	$sql = "SELECT * FROM user_t WHERE username=:username OR email=:email";
+    $stmt = $db->prepare($sql);
+    
+    // bind parameter ke query
+    $params = array(
+        ":username" => $username,
+        ":email" => $username
+    );
+
+    $stmt->execute($params);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // jika user terdaftar
+    if($user){
+        //
+    
+        // register gagal, cari username atau email yang lain
+        $gagal = "<div class='alert alert-info center'>
+                    <p><strong>Maaf,</strong> Username atau Email telah terpakai.</p>
+                </div>";
+		
+    
+    } else {
     // enkripsi password
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 	// pilih type, lokasi, dan status
-    $type = $_POST['type'];	
-    $location = $_POST['location'];	
-    $status = 'available';	
-    $phone = $_POST['phone'];
+    $type =<?php
 
-    // menyiapkan query
-    $sql = "INSERT INTO user_t (name, username, email, password, type, location, status, phone) 
-            VALUES (:name, :username, :email, :password, :type, :location, :status, :phone)";
+$gagal = NULL;
+
+require_once("config.php");
+
+if(isset($_POST['register'])){
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    $sql = "SELECT * FROM user_t WHERE username=:username OR email=:email";
     $stmt = $db->prepare($sql);
-
+    
     // bind parameter ke query
     $params = array(
-        ":name" => $name,
         ":username" => $username,
-        ":password" => $password,
-        ":type" => $type,
-        ":email" => $email,
-        ":location" => $location,
-        ":status" => $status,
-        ":phone" => $phone
+        ":email" => $username
     );
-    
-    // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
 
-    // jika query simpan berhasil, maka user sudah terdaftar
-    // maka alihkan ke halaman login
-    if($saved) header("Location: login.php");
-     
+    $stmt->execute($params);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // jika user terdaftar
+    if($user){
+        //
+    
+        // register gagal, cari username atau email yang lain
+        $gagal = "<div class='alert alert-info center'>
+                    <p><strong>Maaf,</strong> Username atau Email telah terpakai.</p>
+                </div>";
+		
+    
+    } else {
+        // filter data yang diinputkan
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+        // enkripsi password
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        // pilih type, lokasi, dan status
+        $type = $_POST['type'];	
+        $location = $_POST['location'];	
+        $status = 'available';	
+        $phone = $_POST['phone'];
+
+        // menyiapkan query
+        $sql = "INSERT INTO user_t (name, username, email, password, type, location, status, phone) 
+                VALUES (:name, :username, :email, :password, :type, :location, :status, :phone)";
+        $stmt = $db->prepare($sql);
+
+        // bind parameter ke query
+        $params = array(
+            ":name" => $name,
+            ":username" => $username,
+            ":password" => $password,
+            ":type" => $type,
+            ":email" => $email,
+            ":location" => $location,
+            ":status" => $status,
+            ":phone" => $phone
+        );
+        
+        // eksekusi query untuk menyimpan ke database
+        $saved = $stmt->execute($params);
+
+        // jika query simpan berhasil, maka user sudah terdaftar
+        // maka alihkan ke halaman login
+        if($saved) header("Location: login.php");
+    }
 }
 
 ?>
