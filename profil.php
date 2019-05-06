@@ -78,20 +78,6 @@
 	</div>
 	<!--Jumbotron-->
 
-	<div class="container">
-	  <div class="row">
-	    <div class="col">
-	    	<p>Bila anda ingin mengubah status anda dari "Avaible" menjadi "not Avaible" atau sebaliknnya, anda hanya cukup menekan tombol dibawah ini</p>
-	    	<form method="POST" action="">
-	    		<button class="btn-primary btn-lg" type="submit" name="submit">Ubah Status</button>
-	    	</form>
-	    </div>
-	    <div class="col">
-	      	<p>Bila ingin mengubah informasi data diri anda, anda dapat menekan Ubah Data tombol dibawah</p>
-			<a href="ubah.php?id=<?php echo $rows['id']?>" class="btn-primary btn-lg ">Ubah Data</a>
-	    </div>
-	</div>
-
 
 
 <footer class="footer mt-5 pb-4">
