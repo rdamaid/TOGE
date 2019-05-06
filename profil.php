@@ -78,6 +78,20 @@
 	</div>
 	<!--Jumbotron-->
 
+	<div class="container">
+	  <div class="row">
+	    <div class="col">
+	    	<p>Bila anda ingin mengubah status anda dari "Avaible" menjadi "not Avaible" atau sebaliknnya, anda hanya cukup menekan tombol dibawah ini</p>
+	    	<form method="POST" action="">
+	    		<button class="btn-primary btn-lg" type="submit" name="submit">Ubah Status</button>
+	    	</form>
+	    </div>
+	    <div class="col">
+	      	<p>Bila ingin mengubah informasi data diri anda, anda dapat menekan Ubah Data tombol dibawah</p>
+			<a href="ubah.php?id=<?php echo $rows['id']?>" class="btn-primary btn-lg ">Ubah Data</a>
+	    </div>
+	</div>
+
 
 
 <footer class="footer mt-5 pb-4">
@@ -85,13 +99,18 @@
 <div class="container text-center pt-3 mb-3">
 <footer class="container">
 	<h5> Join Us On</h5>
-	<ul>
-		<li><a href="#"><img src="https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-33.png" width="50"></a></li>
-		<li><a href="#"><img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-512.png" width="50"></a></li>
-		<li><a href="#"><img src="https://s3.amazonaws.com/peoplepng/wp-content/uploads/2018/06/27151135/twitter-icon-png-black.png" width="47"></a></li>
-		<li><a href="#"><img src="https://image.flaticon.com/icons/png/512/33/33447.png" width="47"></a></li>
+	<ul class='list-inline'>
+		<li class="list-inline-item"><a href="https://www.facebook.com/bayyinahinst/" ><img src="https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-33.png" width="50"></a></li>
+		<li class="list-inline-item"><a href="https://www.instagram.com/ilmfeed/" ><img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-512.png" width="50"></a></li>
+		<li class="list-inline-item"><a href="https://twitter.com/YaqeenInstitute" ><img src="https://s3.amazonaws.com/peoplepng/wp-content/uploads/2018/06/27151135/twitter-icon-png-black.png" width="47"></a></li>
+		<input type="submit" class="button" name="insert" value="insert" hidden />
+		<li class="list-inline-item"><button class="btn btn-lg btn-default btn-block" type="submit" value="WA" name="WA"><img src="https://image.flaticon.com/icons/png/512/33/33447.png" width="47"></button></li>
+		
+		<?php
+
+		?>
 	</ul>
-        <p style="text-align: center;">&copy; 2017-2018 Warung Belajar </p>
+		<p class="mb-1">&copy; 2019 TOGE</p>
 </footer>
 
 
