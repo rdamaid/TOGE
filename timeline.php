@@ -105,10 +105,9 @@
                         }
                         $photo = $rows['photo']; ?>
 
-                        <div class='card mb-3'>
+                        <div class='card card-group'>
                             <div class='card-body'>
                                 <img class="img img-responsive mb-6" width="200" src="img/<?php echo $photo ?>" />
-                        
                                 <h5><?php echo  $name ?></h5>
                                 <p>Nomor HP: <?php echo $phone ?></p>
                                 <p>Lokasi: <?php echo $location ?></p>
